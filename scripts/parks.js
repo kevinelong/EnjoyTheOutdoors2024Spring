@@ -4,14 +4,35 @@ function option(text) {
     o.innerText = text;
     return o;
 }
+function getPark(park) {
+    const element = document.createElement("div");
+    element.classList.add("park");
 
+    element.innerHTML = `
+        <hr>
+        <h3>${park.LocationName}</h3>
+        <h4>${park.LocationID}</h4>
+        <div>${park.State}</div>
+    `;
+    return element;
+}
 document.addEventListener("DOMContentLoaded", () => {
+
     function showResults() {
+        let filtered = [];
         if (locationRadio.checked) {
-
+            filtered = nationalParksArray.filter(
+                o => o.State.toUpperCase() === locations.value.toUpperCase()
+            )
         } else {
-
+            filtered = nationalParksArray.filter(
+                o => o.LocationName.toUpperCase().includes(
+                    parkTypes.value.toUpperCase()
+                )
+            )
         }
+        results.innerHTML = ""; //CLEAR OUT THE OLD
+        filtered.forEach(p => results.appendChild(getPark(p)));
     }
     locations.addEventListener("change", showResults);
     parkTypes.addEventListener("change", showResults);
@@ -24,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             locationLabel.style.display = "none";
             parkTypeLabel.style.display = "block";
         }
+        showResults();
     }
     locationRadio.addEventListener("click", handleSearchBy)
     parkTypeRadio.addEventListener("click", handleSearchBy)
