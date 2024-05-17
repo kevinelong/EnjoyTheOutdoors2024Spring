@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,17 +13,31 @@
     <script src="./scripts/locationData.js"></script>
     <script src="./scripts/parks.js"></script>
 </head>
+
 <body>
     <a href="index.html">HOME</a>
     <h1>Parks</h1>
     <h2>Search By:</h2>
-    <label><input type="radio" name="searchBy" id="locationRadio">Location(State)</label>
+    <label>
+        <input type="radio" name="searchBy" id="locationRadio" checked>
+        Location(State)
+    </label>
     <br>
-    <label><input type="radio" name="searchBy" id="parkTypeRadio">Park Type</label>
+    <label>
+        <input type="radio" name="searchBy" id="parkTypeRadio">
+        Park Type
+    </label>
     <div class="filters">
-        <label id="locationLabel">Location: <select name="location" id="location"></select></label>
-        <label id="parkTypeLabel">Park Type: <select name="parkType" id="parkType"></select></label>
+        <label id="locationLabel">
+            Location:
+            <select name="locations" id="locations"></select>
+        </label>
+        <label id="parkTypeLabel" style="display:none">
+            Park Type:
+            <select name="parkTypes" id="parkTypes"></select>
+        </label>
     </div>
     <div id="results">?</div>
 </body>
+
 </html>
