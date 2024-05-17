@@ -14,6 +14,13 @@ function getPark(park) {
         <h4>${park.LocationID}</h4>
         <div>${park.State}</div>
     `;
+    if(park.hasOwnProperty("Visit")){
+        const link = park.Visit;
+        const text = park.LocationName;
+        element.innerHTML += `
+        <div><a href="${link}" class="visit-site"> ${text} </a></div>
+        `;
+    };
     return element;
 }
 document.addEventListener("DOMContentLoaded", () => {
