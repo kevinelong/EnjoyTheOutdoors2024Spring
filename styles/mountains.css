@@ -1,0 +1,16 @@
+th {
+    color: white;
+    background-color: black;
+    text-align: left;
+}
+
+td {
+    background-color: white;
+    color: black;
+}
+th,td{
+    padding: 0.25rem 0.5rem;
+}
+table {
+    background-color: black;
+}
