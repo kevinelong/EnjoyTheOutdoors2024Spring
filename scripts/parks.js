@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showResults() {
         let filtered = [];
+        results.innerHTML = "Loading..."; //CLEAR OUT THE OLD
+
         if (locationRadio.checked) {
             filtered = nationalParksArray.filter(
                 o => o.State.toUpperCase() === locations.value.toUpperCase()
@@ -35,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         results.innerHTML = ""; //CLEAR OUT THE OLD
         filtered.forEach(p => results.appendChild(getPark(p)));
+        if(!filtered.length){
+            results.innerHTML = "No Matching Parks";
+        }
     }
     locations.addEventListener("change", showResults);
     parkTypes.addEventListener("change", showResults);
